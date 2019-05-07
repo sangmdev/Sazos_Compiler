@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <style>
+        body, html {height: 100%}
+        body {bgcolor: #F8F8FF}
+        h1, p,h2, h3,div, #myNavbar
+        {
+            font-family: "Amatic SC", sans-serif;
+        }
+        .func-name
+        {
+            font-family:Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,sans-serif;
+        }
+        .w3-content
+        {
+            font-size: 30px;
+        }
+        #myNavbar{
+            z-index: 1;
+        }
+        .info {
+            background-color: #e7f3fe;
+            border-left: 6px solid #2196F3;
+            font-size: 20px;
+        }
+        p{
+            text-align: center;
+        }
+        .success {
+            background-color: #ddffdd;
+            border-left: 6px solid #4CAF50;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+    <div class="w3-bar w3-xlarge w3-black w3-hover-opacity-off" id="myNavbar">
+        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="tutorial.html" class="w3-bar-item w3-button">TUTORIAL</a>
+        <a href="text.html" class="w3-bar-item w3-button">COMPILE</a>
+        <a href="doc.html" class="w3-bar-item w3-button">DOCUMENTATION</a>
+
+    </div>
+</div>
+
+<!-- Profile Page container-->
+<div class="w3-container w3-padding-64 w3-xlarge" id="#">
+    <div class="w3-content">
+        <h1 class="w3-center" style="margin-bottom:15px">
+            <span class="w3-text-black w3-hide-small" style="font-size:70px">Tutorial<br></span>
+        </h1>
+        <h3 align = "center"> Compiling an assembly program using SAZO's Compiler is quick and easy! To get started, go to
+            the <a href="text.html">COMPILE PAGE</a>.
+        </h3><br>
+
+
+
+<h1 class="w3-text-black w3-xxlarge"><b>QUICK GUIDE TO SAZO'S COMPILER</b></h1>
+    <!--    <p><b>Assembly language</b> is a low-level machine-dependent language in which short mnemonic names correspond to individual machine instructions.
+            Used to present in readable form programs written in machine code.
+            The assembly language allows the programmer to use text mnemonic (that is, easily remembered by a person) codes , at its discretion, assign symbolic
+            names to the computer and memory registers, as well as set convenient ways of addressing .
+        </p> -->
+
+<div class="w3-row">
+    <a href="javascript:void(0)" onclick="openCity(event, 'Editor');">
+        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-xxlarge">Editor</div>
+    </a>
+    <a href="javascript:void(0)" onclick="openCity(event, 'Stdin');">
+        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-xxlarge">Stdin</div>
+    </a>
+    <a href="javascript:void(0)" onclick="openCity(event, 'Output');">
+        <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding w3-xxlarge">Output</div>
+    </a>
+
+</div>
+        <div id="Editor" class="w3-container city" style="display:none">
+            <h2><b>This section allows you to:</b></h2>
+            <div class="w3-row">
+                <div class="w3-col w3-container" style="width:500px">
+                    <div class="info">
+                        <strong>NOTE:</strong> Simply delete the code displayed by pressing backspace from your keyboard
+                        <br>
+                    </div>
+                        <li><b>Write</b> your own code </li>
+                        <li><b>Modify</b> the code displayed on screen  </li>
+                        <li><b>Upload</b> your program</li>
+                        <li><b>Download</b> your code as a .txt or .asm file</li>
+                        <li><b>Compile</b> your code!</li>
+                    <br>
+
+                    <div class="success">
+                        <strong>FYI:</strong> After clicking the download button, save your .txt
+                        or .asm file to your computer and use this to submit to your instructor
+                    </div>
+
+                </div>
+                <div class="w3-col w3-container" style="width:400px">
+                    <img src="images/giphy.gif" alt="Editor" width="500" height="400" align="center">
+                </div>
+            </div>
+        </div>
+
+<div id="Stdin" class="w3-container city" style="display:none">
+    <div class="w3-col w3-container" style="width:400px">
+    <b>Write</b> your input for the <b>READ</b> instructions.
+
+    </div>
+    <div class="w3-col w3-container" style="width:400px">
+            <img src="images/std.gif" alt="Editor" width="400" height="300" align="center">
+    </div>
+</div>
+
+<div id="Output" class="w3-container city" style="display:none">
+    <div class="w3-row">
+        <div class="w3-col w3-container" style="width:400px">
+            <br>
+            This section shows the output of your program after entering an input from <b>STDIN</b> and then clicking the
+        <b>COMPILE</b> button located under <br><b>Editor</b>
+
+        </div>
+
+        <div class="w3-col w3-container" style="width:500px">
+    <img src="images/out.gif" alt="Editor" width="500" height="400" align="right">
+        </div>
+    </div>
+</div>
+
+
+</div>
+
+</div>
+</div>
+</body>
+
+<script>
+    function openCity(evt, cityName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("city");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-border-black", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.firstElementChild.className += " w3-border-black";
+    }
+</script>
+
+</html>

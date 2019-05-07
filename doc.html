@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <style>
+        body, html {height: 100%}
+        body {bgcolor: #F8F8FF}
+        h1, #myNavbar
+        {
+            font-family: "Amatic SC", sans-serif;
+        }
+        .func-name
+        {
+            font-family:Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,sans-serif;
+        }
+        .w3-content
+        {
+            font-size: 16px;
+        }
+        #myNavbar{
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top w3-hide-small">
+        <div class="w3-bar w3-xlarge w3-black w3-hover-opacity-off" id="myNavbar">
+            <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+            <a href="tutorial.html" class="w3-bar-item w3-button">TUTORIAL</a>
+            <a href="text.html" class="w3-bar-item w3-button">COMPILE</a>
+            <a href="doc.html" class="w3-bar-item w3-button">DOCUMENTATION</a>
+  
+        </div>
+    </div>
+
+    <!-- Profile Page container-->
+    <div class="w3-container w3-padding-64 w3-xlarge" id="#">
+        <div class="w3-content">
+            <h1 class="w3-center" style="margin-bottom:15px">
+                <span class="w3-text-black w3-hide-small" style="font-size:70px">Documentation<br></span>
+            </h1>
+            <ul>
+                <li>All functions and variables are to be written in upper-case. Variables must start with a letter and then
+                    can be followed with letters and/or numbers.</li>
+                <li>Storage of values can be in:</li>
+                <ul>
+                    <li>Accumulator (ACC).</li>
+                    <li>Stack.</li>
+                    <li>Named variables.</li>
+                </ul>
+                <li>Instructions consist of an instruction and arguments, space-delimited. Instructions may be preceded with a label that ends with a colon (labelname:).</li>
+                <li>Instructions for naming variables are to be made after the <span class="func-name">STOP</span> instruction. After variable name comes a value representing the initial value of the variable.</li>
+                <li>All names and variables should consist of a length of up to 8 characters.</li>
+                <li><span class="func-name">ADD</span>, <span class="func-name">SUB</span>, <span class="func-name">MULT</span>,
+                    <span class="func-name">DIV</span>, <span class="func-name">WRITE</span>, <span class="func-name">LOAD</span>
+                 can take <span class="func-name">arg</span> as either a variable or a number literal.</li>
+            </ul>
+            <hr/>
+
+            <div class="function">
+                <div class="func-name">
+                    ADD arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Adds to the accumulator by the amount of <span class="func-name">arg</span>.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    BR arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Jumps to the branch with the label named in <span class="func-name">arg</span>.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    BRNEG arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Jumps to the branch with the label named in <span class="func-name">arg</span> if Accumulator is less than zero.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    BRZNEG arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Jumps to the branch with the label named in <span class="func-name">arg</span> if Accumulator is less than or equal to zero.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    BRPOS arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Jumps to the branch with the label named in <span class="func-name">arg</span> if Accumulator is more than zero.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    BRZPOS arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Jumps to the branch with the label named in <span class="func-name">arg</span> if Accumulator is more than or equal to zero.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    BRZERO arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Jumps to the branch with the label named in <span class="func-name">arg</span> if Accumulator is equal to zero.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    COPY arg1 arg2
+                </div>
+                <br/>
+                <div class="func-description">
+                    Copies the value of <span class="func-name">arg2</span> into <span class="func-name">arg1</span>.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    DIV arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Divides the accumulator by the amount of <span class="func-name">arg</span>.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    MULT arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Multiplies the accumulator by the amount of <span class="func-name">arg</span>.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    READ arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Reads input and stores it to <span class="func-name">arg</span>.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    WRITE arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Writes the value of <span class="func-name">arg</span> to output.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    STOP
+                </div>
+                <br/>
+                <div class="func-description">
+                    Stops the program entirely.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    STORE arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Stores the value of the Accumulator into <span class="func-name">arg</span>.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    SUB arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Subtracts from the accumulator by the amount of <span class="func-name">arg</span>.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    NOOP
+                </div>
+                <br/>
+                <div class="func-description">
+                    Do nothing.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    LOAD arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Stores the value of <span class="func-name">arg</span> into the Accumulator.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    PUSH
+                </div>
+                <br/>
+                <div class="func-description">
+                    Allocates a new element to the stack.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    POP
+                </div>
+                <br/>
+                <div class="func-description">
+                    Deallocate the top of stack.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    STACKW arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Stores the value of the Accumulator into the <span class="func-name">arg</span>'th element down the stack.
+                </div>
+            </div>
+            <hr/>
+            <div class="function">
+                <div class="func-name">
+                    STACKR arg
+                </div>
+                <br/>
+                <div class="func-description">
+                    Stores the value of the <span class="func-name">arg</span>'th element down the stack into the Accumulator.
+                </div>
+            </div>
+            <hr/>
+        </div>
+    </div>
+
+</body>
+</html>

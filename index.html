@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Team Sang</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+    body, html {
+        height: 100%
+    }
+
+    body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Amatic SC", sans-serif
+    }
+    p{
+        font-family: "times", sans-serif, serif;
+    }
+    .bgimg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url("https://ak5.picdn.net/shutterstock/videos/7596475/thumb/1.jpg");
+        min-height: 50%;
+    }
+    .shadow {
+        text-shadow: 0 0 10px slategray, 0 0 10px black;
+        font-weight: 900;
+    }
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+    <div class="w3-bar w3-xlarge w3-black w3-hover-opacity-off" id="myNavbar">
+        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="tutorial.html" class="w3-bar-item w3-button">TUTORIAL</a>
+        <a href="text.html" class="w3-bar-item w3-button">COMPILE</a>
+        <a href="doc.html" class="w3-bar-item w3-button">DOCUMENTATION</a>
+        
+    </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min " id="home">
+    <div class="w3-display-middle w3-center">
+        <div class = "shadow">
+            <span class="w3-text-black w3-hide-jumbo" style="font-size:100px; ; opacity: .9;">SAZO'S Compiler<br>
+            </span>
+        </div>
+    </div>
+</header>
+
+<div class="w3-container w3-padding-64 w3-xlarge" id="#">
+
+    <div class="w3-row-padding">
+        <div class="w3-col l8 m6">
+            <h1 class="w3-jumbo"><b>The Mission</b></h1>
+            <h1 class="w3-xxxlarge w3-text-green"><b>Why use our application?</b></h1>
+            <p><span class="w3-xlarge">When we set out to build this application we envisioned something that would make coding in assembly language
+                easier, simpler and more interactive for CS2700 UMSL students. Our team is made up of UMSL students who have completed CS2700.</span></p>
+        </div>
+        <div class="w3-col l4 m6">
+            <img src="https://www.umsl.edu/marketing/files/images/logo.jpg" alt="UMSL logo" class="w3-image w3-right w3-hide-small" width="700" height="700">
+            <div class="w3-center w3-hide-large w3-hide-medium">
+                <img src="https://www.umsl.edu/marketing/files/images/logo.jpg" alt="UMSL logo" class="w3-image w3-margin-top" width="700" height="700">
+            </div>
+        </div>
+
+    </div>
+
+
+
+        <h1 class="w3-jumbo"><b>Features</b></h1>
+
+            <div class="w3-row">
+                <a href="javascript:void(0)" onclick="openCity(event, 'London');">
+                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><h1 class="w3-xxlarge w3-text-green"><b>File system user interface</b></h1></div>
+                </a>
+                <div class="w3-content">
+                <div id="London" class="w3-container city" style="display:none">
+                    <div class="w3-row-padding">
+                        <div class="w3-col w3-container" style="width:400px">
+                            <p><span class="w3-xlarge">There is a file system user interface to avoid use of terminal and allows for upload and download.</span>   </p>
+                        </div>
+                        <div class="w3-col w3-container" style="width:500px">
+                            <img src="https://i.ibb.co/kBBkPCM/Screen-Shot-2019-05-01-at-3-12-57-AM.png" alt="image of editor and file manager open" class="w3-image w3-right w3-hide-small" width="1000" height="1000">
+                            <div class="w3-center w3-hide-large w3-hide-medium">
+                                <img src="https://i.ibb.co/kBBkPCM/Screen-Shot-2019-05-01-at-3-12-57-AM.png" alt="image of editor and file manager open" class="w3-image w3-margin-top" width="1000" height="1000">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    <div class="w3-row">
+                <a href="javascript:void(0)" onclick="openCity(event, 'Paris');">
+                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"><h1 class="w3-xxlarge w3-text-green"><b>Download the program</b></h1></div>
+                </a>
+        <div class="w3-content">
+        <div id="Paris" class="w3-container city" style="display:none">
+            <div class="w3-row-padding">
+                <div class="w3-col w3-container" style="width:400px">
+                    <p><span class="w3-xlarge">Download the program as a .txt or .asm file in order to submit to instructor.</span>   </p>
+                </div>
+                <div class="w3-col w3-container" style="width:500px">
+                    <img src="https://i.ibb.co/6HQ2KVk/editor.png" alt="image of download and upload buttons" class="w3-image w3-right w3-hide-small" width="1000" height="1000">
+                </div>
+                <div class="w3-center w3-hide-large w3-hide-medium">
+                    <img src="https://i.ibb.co/6HQ2KVk/editor.png" alt="image of download and upload buttons" class="w3-image w3-margin-top" width="1000" height="1000">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="w3-row">
+                <a href="javascript:void(0)" onclick="openCity(event, 'Japan');">
+                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"> <h1 class="w3-xxlarge w3-text-green"><b>Color coded commands</b></h1></div>
+                </a>
+        <div class="w3-content">
+        <div id="Japan" class="w3-container city" style="display:none">
+            <div class="w3-row-padding">
+                <div class="w3-col w3-container" style="width:400px">
+                    <p><span class="w3-xlarge">The platform has color coded commands for easy usability.</span></p>
+                </div>
+                <div class="w3-col w3-container" style="width:500px">
+                    <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" alt="image of editor with READ instructions in purple" class="w3-image w3-right w3-hide-small" width="1000" height="1000">
+                    <div class="w3-center w3-hide-large w3-hide-medium">
+                        <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" alt="image of editor with READ instructions in purple" class="w3-image w3-margin-top" width="1000" height="700">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-row">
+                <a href="javascript:void(0)" onclick="openCity(event, 'India');">
+                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"> <h1 class="w3-xxlarge w3-text-green"><b>Error Checking</b></h1></div>
+                </a>
+        <div class="w3-content">
+        <div id="India" class="w3-container city" style="display:none">
+            <div class="w3-row-padding">
+                <div class="w3-col w3-container" style="width:400px">
+                    <p><span class="w3-xlarge">The platform has a robust error checking so you catch all errors as you code.</span></p>
+                </div>
+
+                <div class="w3-col w3-container" style="width:500px">
+                    <img src="images/errors.PNG" alt="image of output box with three errors inside." class="w3-image w3-right w3-hide-small" width="1000" height="1000">
+                    <div class="w3-center w3-hide-large w3-hide-medium">
+                        <img src="images/errors.PNG" alt="image of output box with three errors inside." class="w3-image w3-margin-top" width="1000" height="1000">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+        <div class="w3-row">
+            <a href="javascript:void(0)" onclick="openCity(event, 'Tokyo');">
+                <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding"> <h1 class="w3-xxlarge w3-text-green"><b>Tutorial & Documentation</b></h1></div>
+            </a>
+            <div class="w3-content">
+                <div id="Tokyo" class="w3-container city" style="display:none">
+                    <div class="w3-row-padding">
+                        <div class="w3-col w3-container" style="width:400px">
+                            <p><span class="w3-xlarge">There is a comprehensive technical document  on the assembly language instruction set so that you can reference at any time and a Tutorial page
+                        that you can use to learn how to use our compiler
+                    </span></p>
+                        </div>
+
+                        <div class="w3-col w3-container" style="width:500px">
+                            <img src="https://i.ibb.co/bJ6WvzV/documentation.png" alt="image of documentation and tutorial screenshots" class="w3-image w3-right w3-hide-small" width="1500" height="2000">
+                            <img src="images/tuts.JPG" alt="Editor" width="500" height="200" >
+                            <div class="w3-center w3-hide-large w3-hide-medium">
+                                <img src="https://i.ibb.co/bJ6WvzV/documentation.png" alt="image of documentation and tutorial screenshots"  class="w3-image w3-margin-top" width="1500" height="2000">
+                                <img src="images/tuts.JPG" alt="Editor" width="500" height="200" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--
+            <div id="London" class="w3-container city" style="display:none">
+                <div class="w3-row-padding">
+                <div class="w3-col l8 m6">
+                    <p><span class="w3-xlarge">There is a file system user interface to avoid use of terminal..</span>   </p>
+                </div>
+                <div class="w3-col l4 m6">
+                    <img src="https://i.ibb.co/kBBkPCM/Screen-Shot-2019-05-01-at-3-12-57-AM.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+                    <div class="w3-center w3-hide-large w3-hide-medium">
+                        <img src="https://i.ibb.co/kBBkPCM/Screen-Shot-2019-05-01-at-3-12-57-AM.png" class="w3-image w3-margin-top" width="335" height="471">
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div id="Paris" class="w3-container city" style="display:none">
+                <div class="w3-row-padding">
+                    <div class="w3-col l8 m6">
+                        <p><span class="w3-xlarge">Download the program as a file in order to submit to instructor..</span>   </p>
+                    </div>
+                    <div class="w3-col l4 m6">
+                        <img src="https://i.ibb.co/6HQ2KVk/editor.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+                    </div>
+                    <div class="w3-center w3-hide-large w3-hide-medium">
+                        <img src="https://i.ibb.co/6HQ2KVk/editor.png" class="w3-image w3-margin-top" width="335" height="471">
+                    </div>
+                </div>
+            </div>
+
+            <div id="Tokyo" class="w3-container city" style="display:none">
+                <div class="w3-row-padding">
+                    <div class="w3-col l8 m6">
+                        <h1 class="w3-xxxlarge w3-text-green"><b>Comprehensive documentation</b></h1>
+                        <p><span class="w3-xlarge">There is a comprehensive technical document on the assembly language instruction set so that you can reference at any time.</span></p>
+                    </div>
+                    <div class="w3-col l4 m6">
+                        <img src="https://i.ibb.co/bJ6WvzV/documentation.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+                        <div class="w3-center w3-hide-large w3-hide-medium">
+                            <img src="https://i.ibb.co/bJ6WvzV/documentation.png" class="w3-image w3-margin-top" width="335" height="471">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    <div id="Japan" class="w3-container city" style="display:none">
+        <div class="w3-row-padding">
+            <div class="w3-col l8 m6">
+
+                <p><span class="w3-xlarge">The platform has color coded commands for easy usability..</span></p>
+            </div>
+            <div class="w3-col l4 m6">
+                <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+                <div class="w3-center w3-hide-large w3-hide-medium">
+                    <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" class="w3-image w3-margin-top" width="335" height="471">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="India" class="w3-container city" style="display:none">
+        <div class="w3-row-padding">
+            <div class="w3-col l8 m6">
+                <p><span class="w3-xlarge">The platform has a robust error checking so you catch all errors as you code.</span></p>
+            </div>
+            <div class="w3-col l4 m6">
+                <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+                <div class="w3-center w3-hide-large w3-hide-medium">
+                    <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" class="w3-image w3-margin-top" width="335" height="471">
+                </div>
+            </div>
+        </div>
+    </div>
+
+-->
+
+    <script>
+            function openCity(evt, cityName) {
+                var i, x, tablinks;
+                x = document.getElementsByClassName("city");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < x.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" w3-border-black", "")+ '<br />';
+
+                }
+
+                document.getElementById(cityName).style.display = "block";
+                evt.currentTarget.firstElementChild.className += " w3-border-black";
+            }
+        </script>
+        <!--
+    <div class="w3-col l8 m6">
+        <h1 class="w3-xxxlarge w3-text-green"><b>File system user interface</b></h1>
+        <p><span class="w3-xlarge">There is a file system user interface to avoid use of terminal..</span>   </p>
+    </div>
+    <div class="w3-col l4 m6">
+        <img src="https://i.ibb.co/kBBkPCM/Screen-Shot-2019-05-01-at-3-12-57-AM.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+        <div class="w3-center w3-hide-large w3-hide-medium">
+            <img src="https://i.ibb.co/kBBkPCM/Screen-Shot-2019-05-01-at-3-12-57-AM.png" class="w3-image w3-margin-top" width="335" height="471">
+        </div>
+    </div>
+        -->
+    </div>
+</div>
+<!--
+
+<div class="w3-padding-64 w3-white">
+    <div class="w3-row-padding">
+        <div class="w3-col l8 m6">
+            <h1 class="w3-xxxlarge w3-text-green"><b>Download the program</b></h1>
+            <p><span class="w3-xlarge">Download the program as a file in order to submit to instructor..</span>   </p>
+        </div>
+        <div class="w3-col l4 m6">
+            <img src="https://i.ibb.co/6HQ2KVk/editor.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+        </div>
+        <div class="w3-center w3-hide-large w3-hide-medium">
+            <img src="https://i.ibb.co/6HQ2KVk/editor.png" class="w3-image w3-margin-top" width="335" height="471">
+        </div>
+    </div>
+</div>
+
+<div class="w3-padding-64 w3-white">
+    <div class="w3-row-padding">
+        <div class="w3-col l8 m6">
+            <h1 class="w3-xxxlarge w3-text-green"><b>Comprehensive documentation</b></h1>
+            <p><span class="w3-xlarge">There is a comprehensive technical document on the assembly language instruction set so that you can reference at any time.</span></p>
+        </div>
+        <div class="w3-col l4 m6">
+            <img src="https://i.ibb.co/bJ6WvzV/documentation.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+            <div class="w3-center w3-hide-large w3-hide-medium">
+                <img src="https://i.ibb.co/bJ6WvzV/documentation.png" class="w3-image w3-margin-top" width="335" height="471">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w3-padding-64 w3-white">
+    <div class="w3-row-padding">
+        <div class="w3-col l8 m6">
+            <h1 class="w3-xxxlarge w3-text-green"><b>Color coded commands</b></h1>
+            <p><span class="w3-xlarge">The platform has color coded commands for easy usability..</span></p>
+        </div>
+        <div class="w3-col l4 m6">
+            <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+            <div class="w3-center w3-hide-large w3-hide-medium">
+                <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" class="w3-image w3-margin-top" width="335" height="471">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w3-padding-64 w3-white">
+    <div class="w3-row-padding">
+        <div class="w3-col l8 m6">
+            <h1 class="w3-xxxlarge w3-text-green"><b>Error Checking</b></h1>
+            <p><span class="w3-xlarge">The platform has a robust error checking so you catch all errors as you code.</span></p>
+        </div>
+        <div class="w3-col l4 m6">
+            <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" class="w3-image w3-right w3-hide-small" width="335" height="471">
+            <div class="w3-center w3-hide-large w3-hide-medium">
+                <img src="https://i.ibb.co/jJcxm0W/Screen-Shot-2019-04-16-at-4-40-20-PM.png" class="w3-image w3-margin-top" width="335" height="471">
+            </div>
+        </div>
+    </div>
+</div>
+-->
+
+</body>
+</html>

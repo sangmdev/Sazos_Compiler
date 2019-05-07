@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Compile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles/codemirror.css">
+    <script src="js/codemirror.js"></script>
+    <script src="js/javascript.js"></script>
+    <script src="js/asmcompiler.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="js/syntaxCheck.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        textarea {
+            height: 300px;
+            width: 600px;
+            float:left;
+            margin-bottom: 5px;
+        }
+    </style>
+
+
+    <style>
+        body, html {
+            height: 100%
+        }
+
+        body, h1, h2, h3, h4, h5, h6 {
+            font-family: "Amatic SC", sans-serif
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .btn {
+            border: 2px solid gray;
+            color: gray;
+            background-color: white;
+            padding: 8px 115px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+        #myNavbar{
+            z-index: 1;
+        }
+        #stack{
+            height: 305px;
+            width: 200px;
+            border: 4px solid black;
+
+            display:flex;
+            flex-direction: column-reverse;
+        }
+        .stackItem{
+            width: 193px;
+            height: 50px;
+            background-color: grey;
+            border-top: 2px dashed black;
+            text-align:center;
+            color: black;
+            font-size: 25px;
+        }
+        #editorBox{
+            width: 600px;
+            float:left;
+            margin-bottom: 5px;
+        }
+        #leftTitle, #rightTitle, #middleTitle{
+            display:inline-block;
+        }
+        #leftTitle{
+            margin-left: 1%;
+        }
+        #middleTitle{
+            margin-left: 45%;
+        }
+        #rightTitle{
+            margin-left: 20%
+        }
+        #consoleBox{
+            height:300px;
+            width: 600px;
+        }
+        #compileBtn{
+            width: 215px;
+            height: 50px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        #asmBtn, #txtBtn, #comBtn{
+            width: 300px;
+            display:inline-block;
+        }
+        a:hover{
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body bgcolor=#F8F8FF>
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+    <div class="w3-bar w3-xlarge w3-black w3-hover-opacity-off" id="myNavbar">
+        <a href="index.html" class="w3-bar-item w3-button">HOME</a>
+        <a href="tutorial.html" class="w3-bar-item w3-button">TUTORIAL</a>
+        <a href="text.html" class="w3-bar-item w3-button">COMPILE</a>
+        <a href="doc.html" class="w3-bar-item w3-button">DOCUMENTATION</a>
+    </div>
+</div>
+
+<!-- Profile Page container-->
+<div class="w3-container w3-padding-64 w3-large" id="#">
+
+    <div class="w3-content">
+        <h1 class="w3-center" style="margin-bottom:15px">
+            <span class="w3-text-black w3-hide-small" style="font-size:70px">SAZO'S COMPILER<br></span>
+        </h1>
+
+    </div>
+    <span id="leftTitle" class="w3-text-black w3-hide-small" style="font-size:35px">Editor<br></span>
+    <button onclick="document.getElementById('id01').style.display='block'"  class="w3-button ">Instructions <i class="fa fa-question-circle" aria-hidden="true"></i></button>
+    <span id= "middleTitle" class="w3-text-black w3-hide-small" style="font-size:35px">Stdin</span>
+
+        <div id="id01" class="w3-modal">
+            <div class="w3-modal-content" style="font-family: times, sans-serif, serif;">
+                <div class="w3-row">
+                    <div class="w3-third w3-container">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                        <br><b>ADD arg</b><br>
+                        Adds to the accumulator by the amount of arg.<br><br>
+
+                        <b>BR arg</b><br>
+                        Jumps to the branch with the label named in arg.<br><br>
+
+                        <b>BRNEG arg</b><br>
+                        Jumps to the branch with the label named in arg if Accumulator is less than zero.<br><br>
+
+                        <b>BRZNEG arg</b><br>
+                        Jumps to the branch with the label named in arg if Accumulator is less than or equal to zero.<br><br>
+
+                        <b>BRPOS arg</b><br>
+                        Jumps to the branch with the label named in arg if Accumulator is more than zero.<br><br>
+
+                        <b>BRZPOS arg</b><br>
+                        Jumps to the branch with the label named in arg if Accumulator is more than or equal to zero.<br><br>
+
+                        <b>BRZERO arg</b><br>
+                        Jumps to the branch with the label named in arg if Accumulator is equal to zero.<br><br>
+                    </div>
+                    <div class="w3-third w3-container">
+                        <br><b>COPY arg1 arg2</b><br>
+                        Copies the value of arg2 into arg1. <br><br>
+
+                        <b>DIV arg</b><br>
+                        Divides the accumulator by the amount of arg.<br><br>
+
+                        <b>MULT arg</b><br>
+                        Multiplies the accumulator by the amount of arg. <br><br>
+
+
+                        <b>READ arg</b><br>
+                        Reads input and stores it to arg.<br><br>
+
+                        <b>WRITE arg</b><br>
+                        Writes the value of arg to output.<br><br>
+
+                        <b>STOP</b><br>
+                        Stops the program entirely.<br><br>
+
+                        <b>STORE arg</b><br>
+                        Stores the value of the Accumulator into arg.<br><br>
+
+                        <br>
+                        <b>SUB arg</b><br>
+                        Subtracts from the accumulator by the amount of arg.<br><br>
+                    </div>
+                    <div class="w3-third w3-container">
+                       <br> <b>NOOP</b><br>
+                        Do nothing.<br><br>
+
+                        <b>LOAD arg</b><br>
+                        Stores the value of arg into the Accumulator.<br><br>
+
+                        <b>PUSH</b><br>
+                        Allocates a new element to the stack.<br><br>
+
+                        <b>POP</b><br>
+                        Deallocate the top of stack.<br><br>
+
+
+                        <b>STACKW arg</b><br>
+                        Stores the value of the Accumulator into the arg'th element down the stack.<br><br>
+
+                        <b>STACKR arg</b><br>
+                        Stores the value of the arg'th element down the stack into the Accumulator.<br><br>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+            <span id= "rightTitle" class="w3-text-black w3-hide-small" style="font-size:35px">Output<br></span>
+    <!--     <div id="stack">
+           <div class="stackItem">sample 1</div>
+           <div class="stackItem">sample 2</div>
+           <div class="stackItem">sample 3</div>
+       </div> -->
+
+    <!--        <h1 class="w3-center" style="margin-bottom:15px">-->
+    <!--            <span class="w3-text-black w3-hide-small" style="font-size:70px">Compile<br></span>-->
+    <!--        </h1>-->
+    <div class="w3-container w3-half" style="width: 45%">
+        <div id="editorBox" oninput="syntaxCheck()" onkeyup="backspaceCheck(editor, event)">
+            <!-- Editor box -->
+            <textarea id="code" name="code">
+READ X
+READ Y
+READ Z
+LOAD X
+ADD Y
+ADD Z
+STORE X
+WRITE X
+STOP
+X 0
+Y 0
+Z 0</textarea>
+        </div>
+    </div>
+
+    <!--End of editor-->
+    <div class="w3-container w3-half">
+        <div id="write">
+            <textarea id ="stndin" style="background-color: black ;color: white; font-family: monospace; width: 250px; display:inline-block; resize:none;margin-right: 50px;" placeholder="Enter your standard input here.."></textarea>
+        </div>
+
+        <div>
+            <textarea readonly id="consoleBox" type="text" style="color:white; width: 300px; font-family: monospace; resize:none; font-weight: bold; font-size: 15px; background-color: black;"
+                      size = "300px" name="consoleData" rows="10" cols="50">  </textarea>
+        </div>
+    </div>
+
+    <div id="controller" class="w3-col" style="width:60%">
+        <div class="upload-btn-wrapper">
+            <button class="btn">Upload a file to compile...</button>
+            <input type="file" accept=".txt,.asm" name="myfile" onchange="uploadfile(this)"/>
+        </div>
+        <div class="upload-btn-wrapper" id="comBtn">
+            <button class="btn" type="submit" value="Compile" onclick="compilerCheck()" >Compile</button>
+        </div><br>
+      <!--
+        <div class="upload-btn-wrapper">
+            <input id="compileBtn" type="submit" value="Compile" onclick="fds()">
+        </div><br>
+
+        -->
+        <div class="upload-btn-wrapper"  id ="txtBtn">
+            <button class="btn" onclick="downloadfile('txt')">Download as .txt</button>
+        </div>
+        <div class="upload-btn-wrapper" id="asmBtn">
+            <button  class="btn" onclick="downloadfile('asm')">Download as .asm</button>
+        </div>
+    </div>
+</div>
+<script>
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,
+        matchBrackets: true,
+        continueComments: "Enter",
+        extraKeys: {"Ctrl-Q": "toggleComment"}
+    });
+    var labelIndex = -1;
+    var lineIndex = 0;
+    var syntaxCheckFlag = 0;
+    function uploadfile(input) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            editor.setValue(e.target.result);
+        }
+        reader.readAsText(input.files[0]);
+    }
+
+    function downloadfile(extension)
+    {
+        var text = editor.getValue();
+        text = text.replace(/\n/g, "\r\n")
+        var fileBlob = new Blob([text], {type: "text/plain"});
+        var fileName = "editor." + extension;
+
+        var link = document.createElement("a");
+        link.download = fileName;
+        link.innerHTML = "Download Editor Content";
+
+        window.URL = window.URL || window.webkitURL;
+        link.href = window.URL.createObjectURL(fileBlob);
+        link.onclick = removeClickElement;
+        link.style.display = "none";
+
+        document.body.appendChild(link);
+        link.click();
+    }
+
+    function removeClickElement(e)
+    {
+        document.body.removeChild(e.target);
+    }
+    function fds()
+    {
+        var stdin = document.getElementById("stndin");
+        stdin = stdin.value;
+        clearElements();
+        console.log("Input:" + stdin);
+        getInput(stdin);
+        lineIndex = 0;
+        labelIndex = -1;
+        var stopFlag = false;
+        var strline;
+        while(lineIndex < editor.lineCount())
+        {
+            strline = editor.getLine(lineIndex).trim().split(/(\s+)/).filter( e => e.trim().length > 0);
+            if(strline.length > 0)
+            {
+                addBranchLabel(strline, lineIndex);
+            }
+            if(strline.indexOf("STOP") !== -1)
+                stopFlag = true;
+            else if(stopFlag && strline.length > 0)
+            {
+                addVar(strline);
+            }
+            lineIndex++;
+            if(ERRORS.length > 0)
+            {
+                document.getElementById("consoleBox").innerHTML = ERRORS.join("\n");
+                return;
+            }
+        }
+        stopFlag = false;
+        lineIndex = 0;
+        while(lineIndex < editor.lineCount())
+        {
+            strline = editor.getLine(lineIndex).trim().split(/(\s+)/).filter( e => e.trim().length > 0);
+
+            //if nonempty string and first element is a label, splice off the label
+            if(!(!strline.join("").trim() || strline.join("").length === 0) && strline[0].charAt(strline[0].length - 1) === ':')
+            {
+                strline.splice(0, 1);
+            }
+            if(strline.indexOf("STOP") !== -1)
+                stopFlag = true;
+            if(!stopFlag && !(!strline.join("").trim() || strline.join("").length === 0))
+            {
+                parseFunction(strline);
+            }
+
+            if(labelIndex > -1)
+            {
+                lineIndex = labelIndex;
+                labelIndex = -1;
+            }
+            else
+            {
+                lineIndex++;
+            }
+            if(ERRORS.length > 0)
+            {
+                document.getElementById("consoleBox").innerHTML = ERRORS.join("\n");
+                return;
+            }
+        }
+
+        console.log(VARS);
+        console.log(STACK);
+        console.log(BRANCHES);
+        console.log("ACC = " + ACC);
+
+        document.getElementById("consoleBox").innerHTML = STDOUT.join("\n");
+    }
+    function compilerCheck(){
+        if(syntaxCheckFlag === 0){
+            fds();
+        }
+        else{
+            console.log("ERRORS exist");
+        }
+    }
+    function syntaxCheck() {
+        clearElements2();
+        syntoCheck(editor);
+        if(ERRORS.length > 0) {
+            document.getElementById("consoleBox").innerHTML = ERRORS.join("\n");
+            //disable compile button
+        }
+        else{
+            document.getElementById("consoleBox").innerHTML = "";
+            //enable compile button
+        }
+    }
+
+</script>
+
+
+</body>
+<!-- Footer -->
+<footer style="background-color:black; color:white; text-align:center;">
+    <p style="">Web Application designed by: Sang Mai, Abdullah Altamimi, Zyra De Los Reyes, Omer Muhit &copy 2019</p>
+</footer>
+</html>
